@@ -1,7 +1,7 @@
 PHP mySQL Profiler
 ==================
 
-A very basic Profiler to show mySQL query activity in a PHP.
+A very basic Profiler to show mySQL query activity in a PHP application.
 
 Usage
 -----
@@ -20,6 +20,10 @@ Output
 <table>
 <tr>
 <td>hh:mm:ss</td>
-<td>mySQL activity</td>
+<td>mySQL query</td>
+</tr>
+<tr>
+<td></td>
+<td>mySQL query</td>
 </tr>
 </table>
