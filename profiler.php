@@ -39,9 +39,14 @@ function is_mysql($log_item, $include_statements)
     {
         foreach ($mysql_log as $log)
         {
+            $time='';
+            $query ='';
+            
             $log_item_array = explode("\t", trim($log), 3);
+            
             if (isset($log_item_array[0]) && substr($log_item_array[0], 0, 6) == date("ymd"))
                 $time = str_replace(date("ymd"), "", $log_item_array[0]);
+            
             if ((isset($log_item_array[0]) && is_mysql($log_item_array[0], $include_statements) == true) || (isset($log_item_array[1]) && is_mysql($log_item_array[1], $include_statements) == true))
             {
                 echo "<tr>\n";
@@ -53,7 +58,7 @@ function is_mysql($log_item, $include_statements)
                 }
                 if (isset($log_item_array[1]) && $log_item_array[1] != '')
                 {
-                    echo " " . preg_replace('/\s+/', ' ', trim($log_item_array[1]));
+                    echo " --- " . preg_replace('/\s+/', ' ', trim($log_item_array[1]));
                 }
                 echo "</td>\n";
                 echo "</tr>\n";
