@@ -1,0 +1,22 @@
+build_settings:
+    ignore:
+    mysql:
+        host: "localhost"
+        user: "root"
+        pass: "murrion*08021981"
+
+setup:
+    mysql:
+        - "DROP DATABASE IF EXISTS test;"
+        - "CREATE DATABASE test;"
+        - "GRANT ALL PRIVILEGES ON test.* TO test@'localhost' IDENTIFIED BY 'test';"
+    composer:
+        action: "install"
+
+test:
+    php_code_sniffer:
+        standard: "PSR2"
+
+complete:
+    mysql:
+        - "DROP DATABASE IF EXISTS test;"
